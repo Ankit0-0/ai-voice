@@ -1,0 +1,4 @@
+for app.py File 
+pip install opencv-python numpy torch pyttsx3
+pip install pandas
+pip install Pillow
