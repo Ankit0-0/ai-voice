@@ -1,0 +1,38 @@
+.tts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .voice-selector {
+    width: 250px;
+    padding: 8px;
+    margin: 15px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+  }
+  
+  .voice-selector:focus {
+    border-color: #007BFF;
+  }
+  
+  .speak-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .speak-button:hover {
+    background-color: #0056b3;
+  }
+  
