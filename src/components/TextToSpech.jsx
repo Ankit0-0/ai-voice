@@ -1,34 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const TextToSpeech = () => {
-  const [text, setText] = useState(`Potato, potato, you’re the star today,
-Potato, potato, in every way!
-Baked potato, mashed potato, fries galore,
-Potato, potato, who could ask for more?
+  const [text, setText] = useState('');
 
-Potato, potato, so golden and fried,
-Potato, potato, I’m on a ride!
-Potato, potato, in every dish,
-Potato, potato, fulfill my wish!
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:6789"); 
 
-Potato, potato, boiled or mashed,
-Potato, potato, my love’s unmatched!
-Potato, potato, I can’t get enough,
-Potato, potato, you’re the stuff!`);
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      const alertText = data.alerts ? data.alerts.join(', ') : 'No alerts';
+      setText(alertText);
+      handleSpeak(alertText);  
+    };
 
-  const handleSpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(text);
+    return () => {
+      ws.close();
+    };
+  }, []);
+
+  const handleSpeak = (message) => {
+    const utterance = new SpeechSynthesisUtterance(message);
     window.speechSynthesis.speak(utterance);
   };
 
   return (
     <div>
-      {/* <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type something to speak"
-      /> */}
-      <button onClick={handleSpeak}>Speak</button>
+      <h2>Alert: {text}</h2>
+      <button onClick={() => handleSpeak(text)}>Speak</button>
     </div>
   );
 };
