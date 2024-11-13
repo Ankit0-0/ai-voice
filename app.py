@@ -1,7 +1,7 @@
-import cv2
-import numpy as np
+import cv2 # type: ignore
+import numpy as np # type: ignore
 import torch
-import pyttsx3
+import pyttsx3 # type: ignore
 import google.generativeai as genai
 
 # Initialize YOLOv5 model as per your code
