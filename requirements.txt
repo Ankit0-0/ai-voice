@@ -1,0 +1,26 @@
+# Core ML and Computer Vision
+torch>=2.1.0
+torchvision>=0.16.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# YOLOv5 requirements
+ultralytics>=8.0.0
+Pillow>=10.0.0
+PyYAML>=6.0.1
+requests>=2.31.0
+scipy>=1.11.3
+tqdm>=4.66.1
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Gemini AI
+google-generativeai>=0.3.0
+
+# Async and WebSocket
+websockets>=12.0
+asyncio>=3.4.3
+
+# Optional but recommended for better performance
+cuda-python>=12.0  # Only if using NVIDIA GPU
